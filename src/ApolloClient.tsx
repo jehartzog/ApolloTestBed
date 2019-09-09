@@ -1,6 +1,6 @@
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { HttpLink } from 'apollo-link-http';
+import { BatchHttpLink } from 'apollo-link-batch-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 
@@ -15,12 +15,12 @@ const Client = new ApolloClient({
         );
       if (networkError) console.log(`[Network error]: ${networkError}`);
     }),
-    new HttpLink({
+    new BatchHttpLink({
       uri: 'https://48p1r2roz4.sse.codesandbox.io',
       credentials: 'same-origin'
     })
   ]),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 export default Client;
