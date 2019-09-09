@@ -31,6 +31,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import client from './src/ApolloClient';
+import ExchangeRates from './src/ExchangeRates';
 
 const App = () => {
   return (
@@ -49,6 +50,7 @@ const App = () => {
             )}
             <View style={styles.body}>
               <View style={styles.sectionContainer}>
+                <ExchangeRates />
                 <Text style={styles.sectionTitle}>Step One</Text>
                 <Text style={styles.sectionDescription}>
                   Edit <Text style={styles.highlight}>App.tsx</Text> to change this
